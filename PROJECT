@@ -1,0 +1,7 @@
+domain: example.zoncoen.net
+repo: github.com/zoncoen-sample/k8s-pizza-order-controller
+resources:
+- group: store
+  kind: PizzaOrder
+  version: v1
+version: "2"

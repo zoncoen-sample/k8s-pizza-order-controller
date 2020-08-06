@@ -1,0 +1,7 @@
+apiVersion: store.example.zoncoen.net/v1
+kind: PizzaOrder
+metadata:
+  name: pizzaorder-sample-default
+spec:
+  items:
+    - id: margherita

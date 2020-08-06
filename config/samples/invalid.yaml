@@ -1,0 +1,6 @@
+apiVersion: store.example.zoncoen.net/v1
+kind: PizzaOrder
+metadata:
+  name: pizzaorder-sample-invalid
+spec:
+  items: []

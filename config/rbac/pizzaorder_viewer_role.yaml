@@ -1,0 +1,20 @@
+# permissions for end users to view pizzaorders.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: pizzaorder-viewer-role
+rules:
+- apiGroups:
+  - store.example.zoncoen.net
+  resources:
+  - pizzaorders
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - store.example.zoncoen.net
+  resources:
+  - pizzaorders/status
+  verbs:
+  - get

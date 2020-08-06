@@ -1,0 +1,52 @@
+
+---
+apiVersion: admissionregistration.k8s.io/v1beta1
+kind: MutatingWebhookConfiguration
+metadata:
+  creationTimestamp: null
+  name: mutating-webhook-configuration
+webhooks:
+- clientConfig:
+    caBundle: Cg==
+    service:
+      name: webhook-service
+      namespace: system
+      path: /mutate-store-example-zoncoen-net-v1-pizzaorder
+  failurePolicy: Fail
+  name: mpizzaorder.kb.io
+  rules:
+  - apiGroups:
+    - store.example.zoncoen.net
+    apiVersions:
+    - v1
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - pizzaorders
+
+---
+apiVersion: admissionregistration.k8s.io/v1beta1
+kind: ValidatingWebhookConfiguration
+metadata:
+  creationTimestamp: null
+  name: validating-webhook-configuration
+webhooks:
+- clientConfig:
+    caBundle: Cg==
+    service:
+      name: webhook-service
+      namespace: system
+      path: /validate-store-example-zoncoen-net-v1-pizzaorder
+  failurePolicy: Fail
+  name: vpizzaorder.kb.io
+  rules:
+  - apiGroups:
+    - store.example.zoncoen.net
+    apiVersions:
+    - v1
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - pizzaorders
